@@ -110,12 +110,6 @@ resource "aws_elasticsearch_domain" "default" {
     cloudwatch_log_group_arn = "${var.log_publishing_search_cloudwatch_log_group_arn}"
   }
 
-  log_publishing_options {
-    enabled                  = "${var.log_publishing_application_enabled }"
-    log_type                 = "ES_APPLICATION_LOGS"
-    cloudwatch_log_group_arn = "${var.log_publishing_application_cloudwatch_log_group_arn}"
-  }
-
   tags = "${module.label.tags}"
 
   depends_on = ["aws_iam_service_linked_role.default"]
